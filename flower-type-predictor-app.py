@@ -80,18 +80,21 @@ accuracy = accuracy_score(y_test, y_pred)
 st.subheader('Model Accuracy on Test Set')
 st.write(f'- ###### The accuracy of the model is: {accuracy:.2f}')
 
+# ... (Previous code remains unchanged)
+
 # Display explanatory text
 st.markdown("""
-            ### What does this Web application do??
+    ### What does this Web application do??
     * This app predicts the type of Iris flower based on user input parameters.
     * Use the sliders in the sidebar to input the sepal length, sepal width, petal length, and petal width.
     * The model is trained on the famous Iris dataset using a Support Vector Machine (SVM) classifier.
 """)
 
-# check the dataset
+# Display Iris dataset
 st.subheader("Iris Dataset:")
 
 st.write('Here is the Iris dataset used in this web application. Feel free to download and explore it if you are interested.')
-df = sns.load_dataset('iris')
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+df['target'] = iris.target
 st.write(df)
 
